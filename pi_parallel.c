@@ -6,6 +6,8 @@
 #define NUM_THREADS 4
 
 double sum = 0.0;  // Shared sum variable
+
+/* It makes sure that when one thread is adding up its part of the calculation to the total, no other thread messes it up by trying to add their part at the same time.*/
 pthread_mutex_t sum_mutex;  // Mutex for updating sum
 
 typedef struct {
@@ -13,6 +15,7 @@ typedef struct {
     int end;
 } ThreadData;
 
+/*he program uses something called ThreadData to tell each thread which part of the Pi calculation to do.*/
 void* thread_sum(void* arg) {
     ThreadData* data = (ThreadData*) arg;
     double local_sum = 0.0;
@@ -55,6 +58,7 @@ int main() {
     printf("Approximated Pi (Parallel): %.12f\n", pi);
 
     // Destroy mutex
+    /*program getting rid of the mutex after the calculation is done*/
     pthread_mutex_destroy(&sum_mutex);
 
     return 0;

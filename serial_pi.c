@@ -9,9 +9,9 @@ double compute_pi_sequential(int n){
          sum +=term;
 
          // Adding diagnostics to trace the values
-        if (i < 10 || i >= n - 10) {  // Print the first and last 10 terms
-            printf("Term %d: factor = %f, (2*i+1) = %d, term = %f, sum = %f\n", i, factor, 2*i+1, term, sum);
-        }
+        // if (i < 10 || i >= n - 10) {  // Print the first and last 10 terms
+        //     printf("Term %d: factor = %f, (2*i+1) = %d, term = %f, sum = %f\n", i, factor, 2*i+1, term, sum);
+        // }
     }
     printf("The sum: %f\n", sum);
     return 4.0*sum;
