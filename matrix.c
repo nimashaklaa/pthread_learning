@@ -30,7 +30,12 @@ int main(int argc, char* argv[]){
         x[j]=j;
     }
 
-    pthread_attr_init(&attr);
+    pthread_attr_init(&attr);  //tells your program to get attr ready with default settings.
+    
+    /*This line changes one of the settings in attr.
+    it tells the program that the threads we create using attr should be "joinable".
+    "Joinable" means that we can wait for these threads to finish their work before our main program continues. This is done using pthread_join
+    */
     pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_JOINABLE);
 
     //create threads
